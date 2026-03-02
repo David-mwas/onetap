@@ -1,50 +1,130 @@
-# Welcome to your Expo app 👋
+# ONETAP 📲
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+ONETAP is an Expo React Native WebView application that loads the ONETAP Connect dashboard with persistent sessions and smooth splash animations.
 
-## Get started
+---
 
-1. Install dependencies
+## 🚀 Features
 
-   ```bash
-   npm install
-   ```
+- 🌐 Loads: https://onetapconnect.co.ke/dashboard
+- 🔐 Persistent login sessions (cookies enabled)
+- 🎬 Animated splash screen (fade + slide logo)
+- 🌙 Automatic system theme detection (Light/Dark mode)
+- 🔄 Pull-to-refresh support
+- 🔙 Android hardware back button support
+- 🔄 Floating refresh button
+- 📱 Clean, modern UI
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## 🛠 Built With
 
-In the output, you'll find options to open the app in a
+- Expo
+- React Native
+- react-native-webview
+- expo-router
+- @expo/vector-icons
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 📦 Installation
 
-## Get a fresh project
-
-When you're ready, run:
+1. Clone the repository
 
 ```bash
-npm run reset-project
+git clone https://github.com/yourusername/onetap-app.git
+cd onetap-app
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+2. Install dependencies
 
-## Learn more
+```bash
+npm install
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+3. Start the development server
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+npx expo start
+```
 
-## Join the community
+4. Open in Expo Go on your device or run on emulator.
 
-Join our community of developers creating universal apps.
+---
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## ⚙️ Configuration
+
+The app loads the ONETAP dashboard by default:
+
+```ts
+source={{ uri: "https://onetapconnect.co.ke/dashboard" }}
+```
+
+Cookies are enabled to maintain login sessions:
+
+```ts
+sharedCookiesEnabled={true}
+thirdPartyCookiesEnabled={true}
+```
+
+---
+
+## 📁 Project Structure
+
+```
+.
+├── app/
+│   └── index.tsx
+├── assets/
+│   └── images/
+│       └── icon.png
+├── app.json
+├── package.json
+└── README.md
+```
+
+---
+
+## 🧩 Splash Animation
+
+The splash screen uses:
+
+- Animated fade-in
+- Slide-up transition
+- Auto-dismiss after animation
+
+---
+
+## 📱 Android Back Handling
+
+If the WebView can go back, the Android hardware back button navigates within the WebView instead of exiting the app.
+
+---
+
+## 🌙 Theme Support
+
+The app automatically adapts to system theme using:
+
+```ts
+useColorScheme();
+```
+
+No forced dark mode — it follows the user’s device settings.
+
+---
+
+## 🏗 Build for Production
+
+To build an Android APK or AAB:
+
+```bash
+eas build -p android
+```
+
+Make sure EAS CLI is installed:
+
+```bash
+npm install -g eas-cli
+```
+
+---
